@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Values Based Leadership Experience — Le Style de l'Esprit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --warm-white: #FDFCFA;
+    --ink: #1C1A17;
+    --ink-mid: #4A4540;
+    --ink-light: #8C8680;
+    --gold: #9A7E52;
+    --gold-light: #C4A882;
+    --rule: #E2DDD6;
+    --card-bg: #F0EDE7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    padding: 28px 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--rule);
+    margin-bottom: 64px;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--ink-mid);
+    text-transform: uppercase;
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-btn {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 0.5px solid var(--rule);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    background: transparent;
+    color: var(--ink-light);
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .lang-btn.active {
+    background: var(--ink);
+    color: var(--warm-white);
+    border-color: var(--ink);
+  }
+
+  /* HERO */
+  .hero {
+    margin-bottom: 72px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .subhead {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  /* TAGS */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 0.5px solid var(--rule);
+    color: var(--ink-mid);
+    letter-spacing: 0.04em;
+    background: var(--warm-white);
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--rule);
+    margin: 56px 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  /* FOR WHO */
+  .for-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .for-card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 18px;
+  }
+
+  .for-card .role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .for-card .desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* MODULES */
+  .modules {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .module {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .module:first-child {
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .module-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold-light);
+    min-width: 32px;
+    padding-top: 3px;
+    font-style: italic;
+  }
+
+  .module-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .module-desc {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* PROMISE */
+  .promise-block {
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .promise-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .promise-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px auto;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .price-beta {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1;
+  }
+
+  .price-regular {
+    font-size: 18px;
+    color: var(--ink-light);
+    text-decoration: line-through;
+  }
+
+  .price-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--gold);
+    color: var(--gold-light);
+    letter-spacing: 0.06em;
+  }
+
+  .cta-sub {
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    font-weight: 300;
+  }
+
+  .urgency {
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--gold);
+    color: var(--warm-white);
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    max-width: 380px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+  }
+
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  .footer {
+    padding: 48px 0 64px;
+    text-align: center;
+  }
+
+  .footer-credentials {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .footer-credentials span {
+    display: inline-block;
+    padding: 0 12px;
+    border-right: 0.5px solid var(--rule);
+  }
+
+  .footer-credentials span:last-child {
+    border-right: none;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-top: 16px;
+    opacity: 0.6;
+  }
+
+  /* LANG */
+  .content { display: none; }
+  .content.active { display: block; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero { animation: fadeUp 0.7s ease both; }
+  .for-grid { animation: fadeUp 0.7s 0.1s ease both; }
+  .modules { animation: fadeUp 0.7s 0.15s ease both; }
+  .promise-block { animation: fadeUp 0.7s 0.2s ease both; }
+  .cta-block { animation: fadeUp 0.7s 0.25s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 560px) {
+    .for-grid { grid-template-columns: 1fr; }
+    .cta-block { padding: 36px 24px; }
+    .footer-credentials span { display: block; border-right: none; padding: 2px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <nav>
+    <span class="brand">Le Style de l'Esprit</span>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="switchLang('en', this)">EN</button>
+      <button class="lang-btn" onclick="switchLang('fr', this)">FR</button>
+    </div>
+  </nav>
+
+  <!-- ENGLISH -->
+  <div class="content active" id="content-en">
+
+    <div class="hero">
+      <p class="eyebrow">The Values Based Leadership Experience</p>
+      <h1 class="headline">You're doing what's<br>expected of you.<br><em>Rarely what you truly want to do.</em></h1>
+      <p class="subhead">A program for leaders who are ready to stop running on autopilot — and start leading from who they actually are.</p>
+      <div class="tags">
+        <span class="tag">Bilingual FR / EN</span>
+        <span class="tag">Self-paced + 2 live sessions</span>
+        <span class="tag">4 modules</span>
+        <span class="tag">ICF ACC certified coach</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Who this is for</p>
+    <div class="for-grid">
+      <div class="for-card">
+        <p class="role">The manager</p>
+        <p class="desc">Questioning whether your impact is real — or just visible.</p>
+      </div>
+      <div class="for-card">
+        <p class="role">The executive</p>
+        <p class="desc">Successful on paper. Something feels off underneath.</p>
+      </div>
+      <div class="for-card">
+        <p class="role">The professional in transition</p>
+        <p class="desc">Rebuilding your identity — on your own terms this time.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">What you'll go through</p>
+    <div class="modules">
+      <div class="module">
+        <span class="module-num">01</span>
+        <div>
+          <p class="module-title">Clarify — What are your values, really?</p>
+          <p class="module-desc">Distinguish what you say you believe from what actually drives your decisions under pressure.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">02</span>
+        <div>
+          <p class="module-title">Evaluate — The Values Barometer</p>
+          <p class="module-desc">A personal diagnostic tool. Not a quiz — a map. Built on philosophy, grounded in real leadership situations.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">03</span>
+        <div>
+          <p class="module-title">Embody — You, facing the world</p>
+          <p class="module-desc">Holding your values when your environment pushes back. This is where values become leadership.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">04</span>
+        <div>
+          <p class="module-title">Sustain — Build a practice, not a resolution</p>
+          <p class="module-desc">Rituals, structures, and the long game. So clarity doesn't fade when things get hard.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="promise-block">
+      <div class="promise-rule"></div>
+      <p class="promise-text">"After the VBLE, I know exactly what guides my decisions — and I no longer leave that power to autopilot."</p>
+      <div class="promise-rule"></div>
+    </div>
+
+    <div class="cta-block">
+      <p class="cta-eyebrow">Beta cohort — Limited offer</p>
+      <div class="price-row">
+        <span class="price-beta">€99</span>
+        <span class="price-regular">€497</span>
+        <span class="price-badge">Beta</span>
+      </div>
+      <p class="cta-sub">10 spots only · Full access · In exchange for honest feedback</p>
+      <p class="urgency">This price disappears when the beta cohort is full.</p>
+      <a href="mailto:contact@lestyledelesprit.com?subject=VBLE Beta — I'm interested" class="cta-btn">I'm interested — tell me more</a>
+    </div>
+
+    <div class="footer">
+      <div class="footer-credentials">
+        <span>Mounira Babou</span>
+        <span>ICF ACC Certified Coach</span>
+        <span>HOW Institute for Society</span>
+        <span>Ex-Director at Levi's</span>
+      </div>
+      <p class="footer-legal">TVA non applicable, art. 293 B du CGI · Le Style de l'Esprit</p>
+    </div>
+
+  </div>
+
+  <!-- FRANÇAIS -->
+  <div class="content" id="content-fr">
+
+    <div class="hero">
+      <p class="eyebrow">The Values Based Leadership Experience</p>
+      <h1 class="headline">Vous faites ce qu'on<br>attend de vous.<br><em>Rarement ce que vous voulez vraiment faire.</em></h1>
+      <p class="subhead">Un programme pour les leaders prêts à sortir du mode automatique — et à diriger depuis qui ils sont vraiment.</p>
+      <div class="tags">
+        <span class="tag">Bilingue FR / EN</span>
+        <span class="tag">Auto-rythmé + 2 sessions live</span>
+        <span class="tag">4 modules</span>
+        <span class="tag">Coach certifiée ICF ACC</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Pour qui</p>
+    <div class="for-grid">
+      <div class="for-card">
+        <p class="role">Le manager</p>
+        <p class="desc">Qui doute de son impact réel — pas seulement de sa visibilité.</p>
+      </div>
+      <div class="for-card">
+        <p class="role">Le dirigeant</p>
+        <p class="desc">Qui a réussi sur le papier. Mais quelque chose sonne faux.</p>
+      </div>
+      <div class="for-card">
+        <p class="role">Le professionnel en transition</p>
+        <p class="desc">Qui reconstruit son identité — cette fois, sur ses propres termes.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Le parcours</p>
+    <div class="modules">
+      <div class="module">
+        <span class="module-num">01</span>
+        <div>
+          <p class="module-title">Clarifier — Quelles sont vraiment vos valeurs ?</p>
+          <p class="module-desc">Distinguer ce que vous dites croire de ce qui guide réellement vos décisions sous pression.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">02</span>
+        <div>
+          <p class="module-title">Évaluer — Le Baromètre des Valeurs</p>
+          <p class="module-desc">Un outil de diagnostic personnel. Pas un quiz — une cartographie. Ancré dans la philosophie, éprouvé sur le terrain.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">03</span>
+        <div>
+          <p class="module-title">Incarner — Soi face au monde</p>
+          <p class="module-desc">Tenir ses valeurs quand l'environnement pousse dans l'autre sens. C'est là que les valeurs deviennent du leadership.</p>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">04</span>
+        <div>
+          <p class="module-title">Durer — Une pratique, pas une résolution</p>
+          <p class="module-desc">Rituels, structures, et temps long. Pour que la clarté ne s'érode pas quand les choses deviennent difficiles.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="promise-block">
+      <div class="promise-rule"></div>
+      <p class="promise-text">« Après le VBLE, je sais exactement ce qui guide mes décisions — et je ne laisse plus ce pouvoir au mode automatique. »</p>
+      <div class="promise-rule"></div>
+    </div>
+
+    <div class="cta-block">
+      <p class="cta-eyebrow">Cohorte beta — Offre limitée</p>
+      <div class="price-row">
+        <span class="price-beta">99€</span>
+        <span class="price-regular">497€</span>
+        <span class="price-badge">Beta</span>
+      </div>
+      <p class="cta-sub">10 places uniquement · Accès complet · En échange de feedback honnête</p>
+      <p class="urgency">Ce tarif disparaît quand la cohorte beta est complète.</p>
+      <a href="mailto:contact@lestyledelesprit.com?subject=VBLE Beta — Je suis intéressé(e)" class="cta-btn">Je suis intéressé(e) — en savoir plus</a>
+    </div>
+
+    <div class="footer">
+      <div class="footer-credentials">
+        <span>Mounira Babou</span>
+        <span>Coach certifiée ICF ACC</span>
+        <span>HOW Institute for Society</span>
+        <span>Ex-Directrice chez Levi's</span>
+      </div>
+      <p class="footer-legal">TVA non applicable, art. 293 B du CGI · Le Style de l'Esprit</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function switchLang(lang, btn) {
+  document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('content-' + lang).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
